@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<meta charset="UTF-8">
+<meta name="robots" content="noindex">
+<title>Serve First Solutions, Inc</title>
+<style media="screen">
+	body {
+		font-family: 'Verdana','Arial','Helvetica', sans-serif;
+		color: #000000;
+		background-color: #D4D7E4;
+	}
+	table {
+		border: none;
+		border-spacing: 0px;
+	}
+	a,
+	a:visited,
+	a:active {
+		color: #000080;
+	}
+	h4{
+		color: #1874dd;
+                font-weight: bold;
+	}
+	#payButton {
+            width: 250px;
+            display: block;
+            margin: auto;
+            height: 50px !important;
+            font-size: 1.5em;
+            background-color: #1874dd;
+            border-color: #1874dd;
+            box-shadow: 0 3px 10px #bbbbbb;
+            border-radius: 19px;
+            opacity: 0.9;
+            font-weight: 100;
+        }
+        #payButton:hover {
+            box-shadow: 0 3px 4px #bbbbbb;
+            opacity: 1;
+            color: white;
+        }
+        #payButton:active {
+            opacity: 0.7;
+        }
+</style>
+<script>
+var submitted = false;
+function submitform()
+{
+	if(submitted) {
+		return false;
+	}
+	submitted=true;
+	document.epayform.submitbutton.value='Please Wait... Processing';
+	return true;
+}
+</script>
+</head>
+
+<body>
+
+<form name="epayform" action="[UMformURL]" method="POST" onSubmit="return submitform()">
+<input type="hidden" name="UMsubmit" value="1">
+<input type="hidden" name="UMkey" value="[UMkey]">
+<input type="hidden" name="UMredirDeclined" value="[UMredirDeclined]">
+<input type="hidden" name="UMredirApproved" value="[UMredirApproved]">
+<input type="hidden" name="UMhash" value="[UMhash]">
+<input type="hidden" name="UMmd5hash" value="[UMmd5hash]">
+<input type="hidden" name="UMmd5key" value="[UMmd5key]">
+<input type="hidden" name="UMcommand" value="[UMcommand]">
+<input type="hidden" name="UMamount" value="[UMamount]">
+<input type="hidden" name="UMtax" value="[UMtax]">
+<input type="hidden" name="UMinvoice" value="[UMinvoice]">
+<input type="hidden" name="UMcustid" value="[UMcustid]">
+<input type="hidden" name="UMrecurring" value="[UMrecurring]">
+<input type="hidden" name="UMaddcustomer" value="[UMaddcustomer]">
+<input type="hidden" name="UMbillamount" value="[UMbillamount]">
+<input type="hidden" name="UMcustreceipt" value="[UMcustreceipt]">
+<input type="hidden" name="UMschedule" value="[UMschedule]">
+<input type="hidden" name="UMnumleft" value="[UMnumleft]">
+<input type="hidden" name="UMstart" value="[UMstart]">
+<input type="hidden" name="UMexpire" value="[UMexpire]">
+<input type="hidden" name="UMdescription" value="[UMdescription]">
+<input type="hidden" name="UMechofields" value="[UMechofields]">
+<input type="hidden" name="UMformString" value="[UMformString]">
+[UMlineitems]
+[UMcustomfields]
+<div>
+	<table  style="width:700px; margin: 0 auto; font-size:12px;" cellpadding="4">
+
+		<tr>
+			<td style="background-color:#FFFFFF;" colspan="2">
+			<b>
+			<span><img src="https://serve-first.com/files/logo_img_fst.png" alt="Serve First Solutions, Inc"></span>
+			<span style="color: #787878; font-size: 1.15rem"><br>
+			Secure Payment Form</span></b></td>
+		</tr>
+		<tr>
+			<td style="background-color:#C4C7D4;" colspan="2">
+			<p style="text-align:center;">
+			<img alt="visa card" src="/images/visa.gif" width="44" height="28" style="margin:0 3px">			<img alt="master card" src="/images/mastercard.gif" width="44" height="28" style="margin:0 3px">			<img alt="american express" src="/images/amex.gif" width="44" height="28" style="margin:0 3px">			<img alt="discover card" src="/images/discover.gif" width="44" height="28" style="margin:0 3px">									</td>
+		</tr>
+		<tr>
+			<td style="background-color:#F0F0F0;" colspan="2">&nbsp;</td>
+		</tr>
+		<tr>
+			<td style="background-color:#C4C7D4;" colspan="2">
+			<b><span><h4>Order Summary:</h4></span></b></td>
+		</tr>
+		<tr>
+			<td style="background-color:#F0F0F0; width: 234px; text-align: right;"><span >Order Date:</span></td>
+			<td style="background-color:#F0F0F0; width:450px;">[UMorderdate]
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color:#F0F0F0; width: 234px; text-align: right;"><span>Order Amount:</span></td>
+			<td style="background-color:#F0F0F0; width:450px;">
+			<input type="text" name="inputAmount" size="25" class = "inputAmount" id = "inputAmount">
+			</td>
+
+		</tr>
+		<tr>
+			<th style="background-color:#F0F0F0; text-align: right;" colspan="2">*Please be informed there is a 3% service fee if you pay by credit/debit card</th>
+
+		</tr>
+		<tr>
+			<td style="background-color:#F0F0F0; width: 234px; text-align: right;"><span>Total Amount:</span></td>
+			<td style="background-color:#F0F0F0; width:450px;">
+			<input type="text" name="UMamount" size="25" class = "UMAmount" id = "UMAmount" value="[UMamount]" readonly>
+			</td>
+
+		</tr>
+		<tr>
+			<td style="background-color:#F0F0F0; width: 234px; text-align: right;"><span>Invoice Number:</span></td>
+			<td style="background-color:#F0F0F0; width:450px;"><input type="text" name="UMinvoice" size="25" value="[UMinvoice]"></td>
+		</tr>
+		<tr>
+			<td style="background-color:#F0F0F0; width: 234px; text-align: right;"><span>Customer IP: </span></td>
+			<td style="background-color:#F0F0F0; width:450px;">[UMclientip]&nbsp;</td>
+		</tr>
+		<!--tr>
+			<td style="background-color:#F0F0F0; width: 234px; text-align: right;"><span>Description: </span></td>
+			<td style="background-color:#F0F0F0; width:450px;"><input type="text" name="UMdescription" size="25" value="[UMdescription]"></td>
+		</tr-->
+		<tr>
+			<td style="background-color:#F0F0F0; width: 234px; text-align: right;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			</td>
+			<td style="background-color:#F0F0F0; width:450px;">&nbsp;</td>
+		</tr>
+[svp]
+		<tr>
+			<td style="background-color:#C4C7D4;" colspan="2"><b><span>Secure Vault Payment
+			Information:</span>
+			[hascreditcards]&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" name="action" value="Pay By Credit Card">[/hascreditcards]
+			[haschecks]&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" name="action" value="Pay By Check">[/haschecks]
+			</b></td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<input type="hidden" name="paybysvp" value="1">
+			</td>
+		</tr>
+		<tr><td colspan=2>
+			Secure Vault Payment allows you to pay directly using your online banking.  Select your bank from the list below.
+			<a href="http://securevaultpayments.org/">Learn More</a>
+		</td></tr>
+		<tr>
+			<td style="background-color:#F0F0F0; width: 234px; text-align: right;"><span>Select your bank:
+			</span></td>
+			<td style="background-color:#F0F0F0; width:450px;"><select name="UMsvpbank">[SVPbanklist]</select></td>
+		</tr>
+[/svp]
+[echeck]
+		<tr>
+			<td style="background-color:#C4C7D4;" colspan="2"><b><span><h4>Checking Account
+			Information:</h4></span>
+			[hascreditcards]&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" name="action" value="Pay By Credit Card">[/hascreditcards]
+			[hassvp]&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" name="action" value="Pay By Secure Vault Payment">[/hassvp]
+			</b></td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<input type="hidden" name="paybycheck" value="1">
+			</td>
+		</tr>
+		<tr><td align=center colspan=2 style="background-color:#F0F0F0;"><img src="/images/samplecheck.gif" alt=""></td></tr>
+		<tr>
+			<td style="background-color:#F0F0F0; width: 234px; text-align: right;"><span>Account Holder Name:
+			</span></td>
+			<td style="background-color:#F0F0F0; width:450px;">
+			<input type="text" name="UMname" size="25" value="[UMname]"></td>
+		</tr>
+		<tr>
+			<td style="background-color:#F0F0F0; width: 234px; text-align: right;"><span>Bank Routing Number:
+			</span></td>
+			<td style="background-color:#F0F0F0; width:450px;">
+			<input type="text" name="UMrouting" size="25"></td>
+		</tr>
+		<tr>
+			<td style="background-color:#F0F0F0; width: 234px; text-align: right;"><span>Bank Account Number:
+			</span></td>
+			<td style="background-color:#F0F0F0; width:450px;">
+			<input type="text" name="UMaccount" size="25"></td>
+		</tr>
+		<tr>
+			<td style="background-color:#F0F0F0; width: 234px; text-align: right;"><span>Social Security Number:
+			</span></td>
+			<td style="background-color:#F0F0F0; width:450px;">
+			<input type="text" name="UMssn" size="11"></td>
+		</tr>
+		<tr>
+			<td style="background-color:#F0F0F0; width: 234px; text-align: right;"><span>Drivers License Number:
+			</span></td>
+			<td style="background-color:#F0F0F0; width:450px;">
+			<input type="text" name="UMdlnum" size="15"></td>
+		</tr>
+		<tr>
+			<td style="background-color:#F0F0F0; width: 234px; text-align: right;"><span>Drivers License State:
+			</span></td>
+			<td style="background-color:#F0F0F0; width:450px;">
+			<input type="text" name="UMdlstate"></td>
+		</tr>
+[/echeck]
+[creditcard]
+		<tr>
+			<td style="background-color:#C4C7D4;" colspan="2"><b><span><h4>Credit Card
+			Information:</h4></span> [haschecks]&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" name="action" value="Pay By Check">[/haschecks]
+			[hassvp]&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" name="action" value="Pay By Secure Vault Payment">[/hassvp]
+			</b></td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<input type="hidden" name="paybycredit" value="1">
+			</td>
+		</tr>
+
+		<tr>
+			<td style="background-color:#F0F0F0; width: 234px; text-align: right;"><span>Card Type:</span></td>
+			<td style="background-color:#F0F0F0; width:450px;">
+
+				<p><select size="1" name="payment_type">
+				<option value="Visa">Visa</option>				<option value="MasterCard">MasterCard</option>				<option value="American Express">American Express</option>				<option value="Discover">Discover</option>												</select></p>
+
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color:#F0F0F0; width: 234px; text-align: right;"><span>Name as on Card:
+			</span></td>
+			<td style="background-color:#F0F0F0; width:450px;">
+			<input type="text" name="UMname" size="25" value="[UMname]"></td>
+		</tr>
+		<tr>
+			<td style="background-color:#F0F0F0; width: 234px; text-align: right;"><span>Card Billing Address:
+			</span></td>
+			<td style="background-color:#F0F0F0; width:450px;">
+			<input type="text" name="UMstreet" size="25" value="[UMstreet]"></td>
+		</tr>
+		<tr>
+			<td style="background-color:#F0F0F0; width: 234px; text-align: right;"><span>Card Billing Zipcode:
+			</span></td>
+			<td style="background-color:#F0F0F0; width:450px;">
+			<input type="text" name="UMzip" size="10" value="[UMzip]"></td>
+		</tr>
+		<tr>
+			<td style="background-color:#F0F0F0; width: 234px; text-align: right;"><span>Card Number:</span></td>
+			<td style="background-color:#F0F0F0; width:450px;">
+			<input type="text" name="UMcard" size="17"></td>
+		</tr>
+		<tr>
+			<td style="background-color:#F0F0F0; width: 234px; text-align: right;"><span>Card Expiration
+			Date: </span></td>
+			<td style="background-color:#F0F0F0; width:450px;">
+			<input type="text" name="UMexpir" size="4"> MMYY</td>
+		</tr>
+		<tr>
+			<td style="background-color:#F0F0F0; width: 234px; text-align: right;"><span><span>
+			Card ID (CVV2/CID) Number:<br>
+&nbsp;</span><span>[<a target="_blank" href="/cvv.htm">What is the Card
+			ID?</a>]</span></span></td>
+			<td style="background-color:#F0F0F0; width:450px;">
+			<input type="text" name="UMcvv2" size="5"></td>
+		</tr>
+		<tr>
+			<td style="background-color:#F0F0F0;" colspan="2">&nbsp;&nbsp;&nbsp; </td>
+		</tr>
+[/creditcard]
+		<tr>
+			<td style="background-color:#C4C7D4;" colspan="2"><span><b><h4>Billing Information:</h4></b></span></td>
+		</tr>
+		<tr>
+			<td style="background-color:#F0F0F0; width: 234px; text-align: right;"><span>Company Name:</span></td>
+			<td style="background-color:#F0F0F0; width:450px;">
+			<input type="text" name="UMbillcompany" size="28" value="[UMbillcompany]"></td>
+		</tr>
+		<tr>
+			<td style="background-color:#F0F0F0; width: 234px; text-align: right;"><span>First Name:</span></td>
+			<td style="background-color:#F0F0F0; width:450px;">
+			<input type="text" name="UMbillfname" size="20" value="[UMbillfname]"></td>
+		</tr>
+		<tr>
+			<td style="background-color:#F0F0F0; width: 234px; text-align: right;"><span>Last Name:</span></td>
+			<td style="background-color:#F0F0F0; width:450px;">
+			<input type="text" name="UMbilllname" size="27" value="[UMbilllname]"></td>
+		</tr>
+		<tr>
+			<td style="background-color:#F0F0F0; width: 234px; text-align: right;"><span>Address:</span></td>
+			<td style="background-color:#F0F0F0; width:450px;">
+			<input type="text" name="UMbillstreet" size="25" value="[UMbillstreet]"></td>
+		</tr>
+		<tr>
+			<td style="background-color:#F0F0F0; width: 234px; text-align: right;"><span>City:</span></td>
+			<td style="background-color:#F0F0F0; width:450px;">
+			<input type="text" name="UMbillcity" size="29" value="[UMbillcity]"></td>
+		</tr>
+		<tr>
+			<td style="background-color:#F0F0F0; width: 234px; text-align: right;"><span>State:</span></td>
+			<td style="background-color:#F0F0F0; width:450px;">
+			<input type="text" name="UMbillstate" size="20" value="[UMbillstate]"></td>
+		</tr>
+		<tr>
+			<td style="background-color:#F0F0F0; width: 234px; text-align: right;"><span>Zip:</span></td>
+			<td style="background-color:#F0F0F0; width:450px;">
+			<input type="text" name="UMbillzip" size="11" value="[UMbillzip]"></td>
+		</tr>
+		<tr>
+			<td style="background-color:#F0F0F0;" colspan="2"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			</span></td>
+		</tr>
+		
+		<tr>
+			<td style="background-color:#F0F0F0; width: 234px; text-align: right;">&nbsp; </td>
+			<td style="background-color:#F0F0F0; width:450px;">&nbsp;</td>
+		</tr>
+		<tr>
+			<td style="background-color:#F0F0F0;" colspan="2">
+							<p>
+							<input type="submit" id= "payButton" name="submitbutton" value="Process Payment &gt;&gt;"></p>
+							<hr>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color:#FFFFFF;" colspan="2">
+			<div>
+				<table style="width:100%;">
+					<tr>
+						<td>
+												</td>
+						<td style="width:84px;"></td>
+					</tr>
+				</table>
+			</div>
+			</td>
+		</tr>
+	</table>
+</div>
+</form>
+</body>
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+ <script type="text/javascript">
+ 	$(document).ready(() => {
+ 		$('#inputAmount').on('change', ()=>{
+ 			$('#UMAmount').val(addSurcharge);
+ 		})
+
+ 		var addSurcharge = () => {
+				var amount = document.getElementById('inputAmount').value;
+				amount *= 1.03;
+				
+				return amount;
+		}
+ 	})
+
+ </script>
+
+</html>
+
+
+
+

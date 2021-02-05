@@ -1,0 +1,400 @@
+:root {
+  --pt-blue: #4698CB;
+  --pt-orange: #E8A552; 
+}
+
+* {
+  box-sizing: border-box;
+  font-size: 18px;
+  line-height: 35px;
+  font-family: sans-serif;
+}
+
+body {
+  /*width: 100%;
+  height: 100%;*/
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+}
+
+.hidden {
+  opacity: 0.0;
+}
+
+.spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 60px;
+  height: 60px;
+  margin-top: -30px;
+  margin-left: -30px;
+  border: 8px solid lightgray;
+  border-radius: 50%;
+  border-top-color: var(--pt-orange);
+  animation: spinner 1.15s linear infinite;
+}
+
+@keyframes spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.main {
+  margin: 0 auto;
+  width: auto;
+  max-width: 700px;
+  display: grid;
+  align-content: center;
+  /*justify-content: center;*/
+  /*grid-template-columns: 1fr;*/
+  /*grid-template-rows: 150px auto;*/
+  grid-gap: 45px;
+  grid-template-areas:
+    "icon"
+    "buttons"
+    "form";
+}
+
+.form form {
+  /*width: 100%;*/
+  max-width: 550px;
+  /*margin: 0 auto;*/
+}
+
+.options {
+  grid-area: buttons;
+  width: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 125px);
+  grid-template-rows: 40px;
+  grid-gap: 10px;
+}
+
+.options span {
+  width: auto;
+  line-height: 40px;
+  color: #8f5713;
+  text-align: center;
+  border-radius: 5px;
+  background: var(--pt-orange);
+  border: 1px solid var(--pt-orange);
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+span.opt-active {
+  border: 1px solid var(--pt-blue);
+  background: var(--pt-blue);
+  cursor: default;
+}
+
+.options span:hover, span.opt-active {
+  opacity: 1;
+  color: white;
+}
+
+.receipt {
+  width: auto; 
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.receipt span {
+  display: block;
+  margin: 5px; 
+  padding-left: 10px;
+}
+
+.icon {
+  grid-area: icon;
+}
+
+.icon img {
+  width: 400px;
+  height: auto;
+  align-self: center;
+}
+
+.form-label {
+  text-align: center;
+  color: var(--pt-blue);
+  font-size: 1.2em;
+  opacity: 0.7;
+}
+
+.form {
+  grid-area: form;
+}
+
+.keyed-amount span, .keyed-amount input {
+  display: inline-block;
+}
+
+.keyed-amount span {
+  color: var(--pt-blue);
+  font-size: 1.3em;
+  transparency: 0.7;
+  line-height: 35px;
+}
+
+form p {
+  line-height: 16px;
+  font-size: 14px;
+  color: var(--pt-blue);
+}
+
+.pt-form {
+  display: grid;
+  /*grid-template-columns: 1fr;*/
+  grid-gap: 10px;
+}
+
+.pt-form input, .pt-form select, .submit-form button {
+  /* autoclear: false; */
+  border-style: none;
+  box-shadow: none;
+  border: 1px solid #3f3f3f;
+  height: 35px;
+  line-height: 35px;
+  font-size: 18px;
+  padding: 0 10px;
+  border-radius: 5px;
+}
+
+.pt-form select option {
+  line-height: 35px;
+  height: 35px;
+  font-size: 18px;
+}
+
+/*.results {*/
+/*  height: 100%;*/
+/*  grid-area: response;*/
+/*  border: 1px solid #3f3f3f;*/
+/*  border-radius: 5px;*/
+/*}*/
+
+/*.submit-form {*/
+/*  display: grid;*/
+/*  grid-template-columns: 1fr 1fr;*/
+/*  grid-gap: 10px;*/
+/*}*/
+
+.json-response {
+  width: auto;
+  max-width: 600px;
+  line-height: 35px;
+  background: white;
+  border: 1px solid darkslategray;
+  border-radius: 5px;
+}
+
+.json-response:hover {
+  background: lightgrey;
+  cursor: pointer;
+}
+
+.json-response.collapse {
+  height: 45px;
+  overflow: hidden;
+}
+
+.json-response.expand {
+  height: auto;
+}
+
+.json-response pre {
+  padding-left: 10px;
+  overflow-x: scroll;
+}
+
+.submit-pay {
+  width: auto;
+  line-height: 35px;
+  color: white;
+  border: 1px solid var(--pt-blue);
+  background: var(--pt-blue);
+  border-radius: 5px; 
+  font-size: 18px;
+}
+
+.submit-pay:hover {
+  background: var(--pt-orange);
+  border: 1px solid var(--pt-orange);
+  cursor: pointer;
+}
+
+.key-card-form {
+  margin: 0 auto;
+  width: auto;
+  max-width: 95vw;
+  display: grid;
+  align-content: center;
+  justify-content: center;
+  grid-template-columns: repeat(4, 25%);
+  grid-gap: 10px;
+  grid-template-areas:
+    "key-amount key-amount key-label key-label"
+    "key-card key-card key-card key-csc"
+    "key-month key-month key-year key-year"
+    "key-name key-name key-name key-name"
+    "key-address key-address key-address key-address-2"
+    "key-city key-city key-city key-city"
+    "key-state key-state key-zip key-zip"
+    "key-submit key-submit key-submit key-submit"
+}
+
+.keyed-label { grid-area: key-label; }
+.keyed-amount { grid-area: key-amount }
+.keyed-card { grid-area: key-card; }
+.keyed-csc { grid-area: key-csc; }
+.keyed-exp-month { grid-area: key-month; }
+.keyed-exp-year { grid-area: key-year; }
+.keyed-billing-name { grid-area: key-name; }
+.keyed-billing-street { grid-area: key-address; }
+.keyed-billing-street-2 { grid-area: key-address-2; }
+.keyed-billing-city { grid-area: key-city; }
+.keyed-billing-state { grid-area: key-state; }
+.keyed-billing-zip { grid-area: key-zip; }
+.keyed-submit { grid-area: key-submit; }
+
+.create-customer-form {
+  margin: 0 auto;
+  width: auto;
+  max-width: 95vw;
+  display: grid;
+  align-content: center;
+  justify-content: center;
+  grid-template-columns: repeat(4, 25%);
+  grid-gap: 10px;
+  grid-template-areas:
+    "cc-lable cc-label cc-label cc-label"
+    "cc-card cc-card cc-card cc-id"
+    "cc-month cc-month cc-year cc-year"
+    "cc-name cc-name cc-name cc-name"
+    "cc-address cc-address cc-address cc-address-2"
+    "cc-city cc-city cc-city cc-city"
+    "cc-state cc-state cc-zip cc-zip"
+    "cc-email cc-email cc-email cc-email"
+    "cc-submit cc-submit cc-submit cc-submit"
+}
+
+.create-customer-label { grid-area: cc-label; }
+.create-customer-id { grid-area: cc-id }
+.create-customer-card { grid-area: cc-card; }
+.create-customer-exp-month { grid-area: cc-month; }
+.create-customer-exp-year { grid-area: cc-year; }
+.create-customer-billing-name { grid-area: cc-name; }
+.create-customer-billing-street { grid-area: cc-address; }
+.create-customer-billing-street-2 { grid-area: cc-address-2; }
+.create-customer-billing-city { grid-area: cc-city; }
+.create-customer-billing-state { grid-area: cc-state; }
+.create-customer-billing-zip { grid-area: cc-zip; }
+.create-customer-email { grid-area: cc-email; }
+.create-customer-submit { grid-area: cc-submit; }
+
+@media screen and (max-width: 600px) {
+  .container {
+      padding: 10px;
+  }
+  
+  .main {
+    grid-template-rows: 100px auto 500px;
+    grid-gap: 25px;
+    grid-template-areas:
+      "icon"
+      "buttons" 
+      "form";
+  }
+	
+  #myform {
+    width: auto;
+  }
+  
+  .create-customer-form {
+    padding: 30px 0px;
+    grid-template-columns: repeat(2, 50%);
+    grid-template-areas:
+      "cc-id cc-label"
+      "cc-card cc-card"
+      "cc-csc cc-csc"
+      "cc-month cc-year"
+      "cc-name cc-name"
+      "cc-address cc-address"
+      "cc-address-2 cc-address-2"
+      "cc-city cc-city"
+      "cc-state cc-zip"
+      "cc-email cc-email"
+      "cc-submit cc-submit"
+    }
+  
+  .key-card-form {
+    padding: 30px 0px;
+    grid-template-columns: repeat(2, 50%);
+    grid-template-areas:
+      "key-amount key-label"
+      "key-card key-card"
+      "key-csc key-csc"
+      "key-month key-year"
+      "key-name key-name"
+      "key-address key-address"
+      "key-address-2 key-address-2"
+      "key-city key-city"
+      "key-state key-zip"
+      "key-submit key-submit"
+  }  
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+input[type="number"]::-webkit-inner-spin-button, 
+input[type="number"]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+.scForm div {
+    display: block;
+    width: 100%;
+    margin: 10px;
+}
+
+.scForm div span {
+    display: inline-block;
+    width: 150px;
+}
+
+.scForm div input {
+    display: inline-block;
+    width: auto;
+    margin-left: 20px;
+}
+
+.scSubmit {
+    box-sizing: border-box;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin-left: 40px;
+    width: 120px;
+    height: 40px;
+    line-height: 35px;
+    font-size: 18px;
+    padding: 0 25px;
+}
+
+.scSubmit:hover {
+    cursor: pointer;
+    color: white;
+    background: darkgray;
+}
+
+.main.create-customer {
+    grid-gap: 5px !important;
+}

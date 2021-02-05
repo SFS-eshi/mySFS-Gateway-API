@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Test</title>
+</head>
+<body>
+	<div>
+		<p>Oauth Token </p>
+		<form id="oauth" autocomplete="off">
+        	<input type="text" id="oauthInput" value="grant_type=password&username=eshiapi&password=Password123">
+        	<button id="oauthButton">oauth</button>
+      	</form>
+
+      <div id="responseField1"></div>
+	</div>
+	<div>
+		<p>Payment </p>
+		<form id="oauth" autocomplete="off">
+        	<input type="text" id="paymentInput" value=" ">
+        	<button id="paymentButton">payment</button>
+      	</form>
+		<div id="responseField2"></div>
+	</div>
+
+	<script src="paytrace-test.js"></script>
+	<script type="text/javascript">
+		var paymentObject = {
+		    "amount":2.00,
+		    "credit_card":{
+		        "number":"4111111111111111",
+		        "expiration_month":"12",
+		        "expiration_year":"2020"
+		    },
+		    "integrator_id":"xxxxxxxxxx",
+		    "csc":"999",
+		    "billing_address":{
+		        "name":"Chi Chi Rodriguez",
+		        "street_address":"8320 E. West St.",
+		        "city":"Spokane",
+		        "state":"WA",
+		        "zip":"85284"
+		    }
+		}
+		document.getElementById("paymentInput").value=JSON.stringify(paymentObject);
+	</script>
+</body>
+</html>

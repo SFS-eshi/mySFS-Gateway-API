@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            mySFS Gateway API
+        </title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <style>
+            .api-img:hover {
+                opacity: 0.7;
+            }
+
+        </style>
+    </head>
+    <body>
+        <main>
+        <a target="_blank" href="https://www.serve-first.com/"><img src="https://sforce.co/3am0wTf"></a>
+        <div class="container">
+            <div class = "jumbotron">
+                <h1 class="text-center">mySFS Gateway API</h1>
+                <hr>
+                <div class="lead text-muted">
+                    <p> See documentation for reference: <a target="_blank" href="https://docs.mysfsgateway.com/api/v2">https://docs.mysfsgateway.com/api/v2</a></p>
+                    <p><a target="_blank" href="https://docs.accept.blue/tokenization/v0.1/">Hosted Tokenization</a></p>
+                    <p>
+                        <a target="_blank" href="https://mysfsgateway.com/login">mySFS Gateway Login</a> / 
+                        <a target="_blank" href="https://sandbox.mysfsgateway.com/login">Sandbox Account Login</a>
+                    </p>
+                    <p><a target="_blank" href="https://bit.ly/2MOtTFq">WooCommerce Plugin</a></p>
+                </div>
+            </div>
+
+            <h2 class="text-center">Integration Methods:</h2><hr>
+            <div class="row">
+              <div class="col-sm-4">
+                  
+                <a href="/directPost" target="_blank">
+                    <img class="api-img" src="https://designshack.net/wp-content/uploads/placeholder-image.png" width="90%" style="background-color: red;
+                    background-blend-mode: multiply;">
+                </a>
+                    <h3 class="text-center">Direct Post</h3>
+                    <p>Standard HTTPS request to send payment data via API to the payment gateway</p>
+              </div>
+              <div class="col-sm-4">
+                <a href="/hostedTokenization" target="_blank">
+                    <img class="api-img" src="https://designshack.net/wp-content/uploads/placeholder-image.png" width="90%">
+                </a>
+                  <h3 class="text-center">Hosted Tokenization</h3>
+                  <p>Hosted tokenization is a feature that allows for an iFrame of sensitive payment fields (i.e., credit card details) to be placed on the merchant’s website or software. </p> 
+                  <p>These data fields are hosted by mySFS and not the merchant and greatly minimizes the scope of PCI compliance without disturbing the UX/UI or redirecting the customer to a separate page. </p>
+                
+              </div>
+              <div class="col-sm-4">
+                <a href="/paymentLink" target="_blank">
+                    <img class="api-img" src="https://designshack.net/wp-content/uploads/placeholder-image.png" width="90%">
+                </a>
+                <h3 class="text-center">Hosted Payment Form</h3>
+                <p>Add a link to your website or email invoice to redirect your clients to a hosted payment page</p>
+              </div>
+            </div>
+          <hr>
+        </main>
+
+          <footer class="text-muted text-center">
+            <div class="container">
+              <p class="float-right">
+                <a href="#">Back to top</a>
+              </p>
+              <p><span>10938 Portal Drive</span> • <span>Los Alamitos, CA 90720</span> • <span>Office (877) 737-7355</span> • <span>Fax (714) 503-6961</span></p>
+              <div class="f-text">
+                <p>Serve First Solutions, Inc. Copyright © 2017. All rights reserved.
+                  <span class="font_10">Serve First Solutions Inc. is a registered ISO of Wells Fargo Bank, N.A., Concord, CA<br>Serve First Solutions Inc. is a Registered MSP/ISO of Elavon, Inc. Georgia [a wholly owned subsidiary of U.S. Bancorp, Minneapolis, MN]<br>All other trademarks are the property of their respective owners.<br>American Express may require separate approval.</span>
+                  </p>
+            </div>
+          </footer>
+    </body>
+</html>

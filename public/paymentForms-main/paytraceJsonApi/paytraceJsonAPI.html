@@ -1,0 +1,142 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width" />
+    <title>UnstoppableAwesome</title>
+    <script src="https://api.paytrace.com/assets/e2ee/paytrace-e2ee.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- -->
+    <script src="main.js"></script>
+    <script src="paymentsubmit.js"></script>
+    <link rel="icon" type="image/png" href="ptfavicon.png">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Cabin|Montserrat" rel="stylesheet">
+</head>
+<body>
+    <div class='container'>
+        <div class='main'>
+            <div class="icon">
+                <img src="/pt_logo2.png" alt="PayTrace">
+            </div>
+            <div class="options">
+                <span id="opt-sale" class="opt-active" data-method="keyedSale">Key Enter</span>
+                <span id="opt-refund" data-method="refundTransaction">Refund Sale</span>
+                <span id="opt-void" data-method="voidTransaction">Void Sale</span>
+                <span id="opt-email" data-method="emailReceipt">Email Receipt</span>
+                <span id="opt-cust" data-method="createCustomer">+Customer</span>
+            </div>
+            <div id='keyedSale' class='form form-active'>
+  <form id='keyed-form' action='keyedSale.php' class="pt-form key-card-form">
+    <div class="keyed-amount amount-box">
+      <span>$</span>
+      <input type="number" id="ccAmount" name="ccAmount" placeholder="Enter Amount" onfocusout="correctNum()" step="0.01" novalidate>
+    </div>
+    <span class="form-label keyed-label">Sale Transaction</span>
+    <input type="text" class="form-control pt-encrypt" id="ccNumber" name="ccNumber" placeholder="Credit Card Number" maxlength="18" hidden>
+    <select class="keyed-card" id="ccSelect" oninput="ccChanged()" name="ccSelect">
+        <option>Credit Card Number</option>
+        <option value='4012000098765439'>Visa Test Card xxxx5439</option>
+        <option value='5499740000000057'>MasterCard Test Card xxxx0057</option>
+        <option value='6011000993026909'>Discover Test Card xxxx6909</option>
+        <option value='371449635392376' >AmEx Test Card xxxx2376</option>
+    </select>
+    <input type="text" class="form-control pt-encrypt keyed-csc" id="ccCSC" name="ccCSC" placeholder="CSC" maxlength="4">
+    <select id="expMonth" name="expMonth" class="keyed-exp-month">
+        <option>Exp Month</option>
+        <option value='1'>January</option><option value='2'>February</option><option value='3'>March</option><option value='4'>April</option><option value='5'>May</option><option value='6'>June</option><option value='7'>July</option><option value='8'>August</option><option value='9'>September</option><option value='10'>October</option><option value='11'>November</option><option value='12'>December</option>    </select>
+    <select id="expYear" name="expYear" class="keyed-exp-year">
+        <option>Exp Year</option>
+        <option value='2020'>2020</option><option value='2021'>2021</option><option value='2022'>2022</option><option value='2023'>2023</option><option value='2024'>2024</option><option value='2025'>2025</option><option value='2026'>2026</option><option value='2027'>2027</option><option value='2028'>2028</option><option value='2029'>2029</option><option value='2030'>2030</option>    </select>
+    <input type='text' class="keyed-billing-name" id="billingName" name="billingName" placeholder="Billing Name">
+    <input type='text' class="keyed-billing-street" id="billingStreet" name="billingStreet" placeholder="Billing Address">
+    <input type='text' class="keyed-billing-street-2" id="billingStreet2" name="billingStreet2" placeholder="Apt/Unit">
+    <input type='text' class="keyed-billing-city" id="billingCity" name="billingCity" placeholder="Billing City">
+    <select id="billingState" name="billingState" class="keyed-billing-state">
+        <option>Billing State</option>
+        <option value='AL'>Alabama</option><option value='AK'>Alaska</option><option value='AZ'>Arizona</option><option value='AR'>Arkansas</option><option value='CA'>California</option><option value='CO'>Colorado</option><option value='CT'>Connecticut</option><option value='DE'>Delaware</option><option value='FL'>Florida</option><option value='GA'>Georgia</option><option value='HI'>Hawaii</option><option value='ID'>Idaho</option><option value='IL'>Illinois</option><option value='IN'>Indiana</option><option value='IA'>Iowa</option><option value='KS'>Kansas</option><option value='KY'>Kentucky</option><option value='LA'>Louisiana</option><option value='ME'>Maine</option><option value='MD'>Maryland</option><option value='MA'>Massachusetts</option><option value='MI'>Michigan</option><option value='MN'>Minnesota</option><option value='MS'>Mississippi</option><option value='MO'>Missouri</option><option value='MT'>Montana</option><option value='NE'>Nebraska</option><option value='NV'>Nevada</option><option value='NH'>New Hampshire</option><option value='NJ'>New Jersey</option><option value='NM'>New Mexico</option><option value='NY'>New York</option><option value='NC'>North Carolina</option><option value='ND'>North Dakota</option><option value='OH'>Ohio</option><option value='OK'>Oklahoma</option><option value='OR'>Oregon</option><option value='PA'>Pennsylvania</option><option value='PR'>Puerto Rico</option><option value='RI'>Rhode Island</option><option value='SC'>South Carolina</option><option value='SD'>South Dakota</option><option value='TN'>Tennessee</option><option value='TX'>Texas</option><option value='UT'>Utah</option><option value='VT'>Vermont</option><option value='VI'>Virgin Islands</option><option value='VA'>Virginia</option><option value='WA'>Washington</option><option value='DC'>Washington DC</option><option value='WV'>West Virginia</option><option value='WI'>Wisconsin</option><option value='WY'>Wyoming</option>    </select>
+    <input type='text' class="keyed-billing-zip" pattern="[0-9]*" id="billingZip" name="billingZip" placeholder="Billing Zipcode">
+    <button class="submit-pay keyed-submit" type="submit">Submit</button>
+  </form>
+</div>
+
+
+  <div id='createCustomer' class='form hidden'>
+    <form id='cc-form' class="pt-form create-customer-form" action='createCustomer.php'>
+        <span class="form-label create-customer-label">Create Customer</span>
+        <input type="text" class="form-control pt-encrypt" id="customerccNumber" name="customerccNumber" placeholder="Credit Card Number" maxlength="18" hidden>
+        <select id="customerccSelect" oninput="customerCCchanged()" name="customerccSelect" class="create-customer-card">
+            <option>Credit Card Number</option>
+            <option value='4012000098765439'>Visa Test Card xxxx5439</option>
+            <option value='5499740000000057'>MasterCard Test Card xxxx0057</option>
+            <option value='6011000993026909'>Discover Test Card xxxx6909</option>
+            <option value='371449635392376' >AmEx Test Card xxxx2376</option>
+        </select>
+        <input class="create-customer-id" type="text" id="custID" name="customerID" placeholder="Customer ID">
+        <select id="customerexpMonth" name="customerexpMonth" class="create-customer-exp-month">
+            <option>Exp Month</option>
+                <option value='1'>January</option><option value='2'>February</option><option value='3'>March</option><option value='4'>April</option><option value='5'>May</option><option value='6'>June</option><option value='7'>July</option><option value='8'>August</option><option value='9'>September</option><option value='10'>October</option><option value='11'>November</option><option value='12'>December</option>        </select>
+        <select id="customerexpYear" name="customerexpYear" class="create-customer-exp-year">
+            <option>Exp Year</option>
+                <option value='2020'>2020</option><option value='2021'>2021</option><option value='2022'>2022</option><option value='2023'>2023</option><option value='2024'>2024</option><option value='2025'>2025</option><option value='2026'>2026</option><option value='2027'>2027</option><option value='2028'>2028</option><option value='2029'>2029</option><option value='2030'>2030</option>        </select>
+        <input type='text' id="customerName" name="customerName" placeholder="Billing Name" class="create-customer-billing-name">
+        <input type='text' id="customerStreet" name="customerStreet" placeholder="Billing Address" class="create-customer-billing-street">
+        <input type='text' id="customerStreet2" name="customerStreet2" placeholder="Apt/Unit" class="create-customer-billing-street-2">
+        <input type='text' id="customerCity" name="customerCity" placeholder="Billing City" class="create-customer-billing-city">
+        <select id="customerState" name="customerState" class="create-customer-billing-state">
+            <option>Billing State</option>
+                <option value='AL'>Alabama</option><option value='AK'>Alaska</option><option value='AZ'>Arizona</option><option value='AR'>Arkansas</option><option value='CA'>California</option><option value='CO'>Colorado</option><option value='CT'>Connecticut</option><option value='DE'>Delaware</option><option value='FL'>Florida</option><option value='GA'>Georgia</option><option value='HI'>Hawaii</option><option value='ID'>Idaho</option><option value='IL'>Illinois</option><option value='IN'>Indiana</option><option value='IA'>Iowa</option><option value='KS'>Kansas</option><option value='KY'>Kentucky</option><option value='LA'>Louisiana</option><option value='ME'>Maine</option><option value='MD'>Maryland</option><option value='MA'>Massachusetts</option><option value='MI'>Michigan</option><option value='MN'>Minnesota</option><option value='MS'>Mississippi</option><option value='MO'>Missouri</option><option value='MT'>Montana</option><option value='NE'>Nebraska</option><option value='NV'>Nevada</option><option value='NH'>New Hampshire</option><option value='NJ'>New Jersey</option><option value='NM'>New Mexico</option><option value='NY'>New York</option><option value='NC'>North Carolina</option><option value='ND'>North Dakota</option><option value='OH'>Ohio</option><option value='OK'>Oklahoma</option><option value='OR'>Oregon</option><option value='PA'>Pennsylvania</option><option value='PR'>Puerto Rico</option><option value='RI'>Rhode Island</option><option value='SC'>South Carolina</option><option value='SD'>South Dakota</option><option value='TN'>Tennessee</option><option value='TX'>Texas</option><option value='UT'>Utah</option><option value='VT'>Vermont</option><option value='VI'>Virgin Islands</option><option value='VA'>Virginia</option><option value='WA'>Washington</option><option value='DC'>Washington DC</option><option value='WV'>West Virginia</option><option value='WI'>Wisconsin</option><option value='WY'>Wyoming</option>        </select>
+        <input type='text' pattern="[0-9]*" id="customerZip" name="customerZip" placeholder="Billing Zipcode" class="create-customer-billing-zip">
+        <input type='text' id="custEmail" name="custEmail" placeholder="Email Address" class="create-customer-email">
+        <button id="createCustomerSubmit" class="submit-pay create-customer-submit" type="submit">Submit</button>
+    </form>
+</div>
+            
+            <div id='refundTransaction' class='form hidden'>
+                <form id='refund-form' class="pt-form" action='referencedRefund.php'>
+                    <span class="form-label refund-label">Refund Transaction</span>
+                    <p>If you wish to refund without a transaction ID, select KEY ENTER above and change the transaction type to REFUND.</p>
+                        <div class="refund-amount amount-box">
+                          <span>$</span>
+                          <input title="Enter an amount. If no amount is provided, the original amount of the transaction will be refunded." type="number" id="refRefAmt" name="refRefAmt" placeholder="Enter Amount" onfocusout="correctNum()" step="0.01" novalidate>
+                        </div>
+                        <input type="text" id="refRefID" name="refRefID" placeholder="Transaction ID">
+                    <button class="submit-pay" type="submit">Submit</button>
+                </form>
+            </div>
+            
+            <div id='voidTransaction' class='form hidden'>
+                <form id='void-form' class='pt-form' action='voidTransaction.php'>
+                    <span class="form-label">Void Transaction</span>
+                    <p>NOTE: You can only void transactions that have not yet settled. If your transaction has settled and you wish to return the funds, select REFUND from above.</p>
+                    <div class="split-50">
+                        <div class="amount-box">
+                          <span>$</span>
+                          <input title="Enter an amount. If no amount is provided, the original amount of the transaction will be refunded." type="number" id="voidTranxAmt" name="voidTranxAmt" placeholder="Enter Amount" onfocusout="correctNum()" step="0.01" novalidate>
+                        </div>
+                        <input type="text" id="voidTranxID" name="voidTranxID" placeholder="Transaction ID">
+                    </div>
+                    <button class="submit-pay" type="submit">Submit</button>
+                </form>
+            </div>
+            
+            <div id='emailReceipt' class='form hidden'>
+                <form id='myform' class='pt-form' action='emailReceipt.php'>
+                    <span class="form-label">Email Transaction Receipt</span>
+                    <p style="display: none" >NOTE: You can only void transactions that have not yet settled. If your transaction has settled and you wish to return the funds, select REFUND from above.</p>
+                    <div class="split-50">
+                        <input type='text' id="custEmailReceipt" name="custEmailReceipt" placeholder="Email Address">
+                        <input type="text" id="emailReceiptID" name="emailReceiptID" placeholder="Transaction ID">
+                    </div>
+                    <button class="submit-pay" type="submit">Submit</button>
+                </form>
+            </div>
+            
+            <div class="spinner"></div>
+            
+        </div>
+    </div>
+</body>
+</html>

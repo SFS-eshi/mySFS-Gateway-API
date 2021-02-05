@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Pay Now | Smart System Technologies</title>
+	<style type="text/css">
+		body {
+			background-color: #eff2f6;
+
+		}
+		.redirect-form p {
+			color: #666;
+		}
+		.redirect-form {
+			font-family: 'Montserrat',Helvetica,Arial,Lucida,sans-serif;
+
+		}
+		.form-control {
+			height: 20px;
+			border: 1px solid #2e86ab;
+			border-radius: 5px;
+		}
+		.state {
+			font-family: 'Montserrat',Helvetica,Arial,Lucida,sans-serif;
+			font-size: 27px;
+			line-height: 1.5em;
+			text-align: center;
+		}
+
+
+		.payment-button {
+			color: #eff2f6;
+			border-width: 4px!;
+			border-color: #eff2f6;
+			border-radius: 25px;
+			font-family: 'Montserrat',Helvetica,Arial,Lucida,sans-serif;
+			text-transform: uppercase;
+			background-color: #2e86ab;
+			outline: 0;
+			padding: 15px;
+			text-decoration: none;
+			width: 300px;
+			margin: auto;
+			text-align: center;
+			cursor: pointer;
+		}
+		.payment-button:hover {
+			opacity: 0.8;
+		}
+		.et_pb_text_inner {
+			padding-top: 55px;
+			padding-right: 0px;
+			padding-bottom: 55px;
+			padding-left: 0px;
+			background-color: #2e86ab!important;
+			color: #eff2f6!important;
+			font-family: 'Montserrat',Helvetica,Arial,Lucida,sans-serif!important;
+			text-transform: uppercase!important;
+			font-size: 40px;
+			text-shadow: 0em 0em 0.3em rgba(0,0,0,0.4)
+		}
+
+	</style>
+</head>
+<body>
+	
+	<div class="et_pb_text_inner">
+		<p style="text-align: center;">Select Your Location&nbsp;</p>
+	</div>
+	<div class= "redirect-form">
+		<div class="state">
+			<p style="text-align: center;">Make a One Time Credit Card Payment.</p>
+		</div>
+		
+		<form method="GET" action="https://paylink.paytrace.com/?m=85706" target="_blank">
+			<table style="margin-left: auto; margin-right: auto;">
+				<tr>
+					<td>
+						Amount:
+					</td>
+					<td>
+						<input type="text" id="amount" name="amount" class="form-control" placeholder="Amount">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Invoice/Quote/Customer#:
+					</td>
+					<td>
+						<input type="text" id="invoice" name="invoice" class="form-control" placeholder="Invoice/Quote/Customer#" required>
+					</td>
+				</tr>
+			</table>
+			<div>
+				 
+			</div>
+
+			<div class="state-select" style="display: flex; margin: 20px">
+					
+				<div class="AZ-Pay" style="flex: 50%;">
+					<div class= "state">
+						<p style="text-align: center;">ARIZONA</p>
+					</div>
+					<div id ="az-payment" style="text-align: center;">
+						<a href = "https://paylink.paytrace.com/?m=85707" class="payment-button" id="az-form" target="_blank">AZ Payment</a>
+						
+					</div>
+				</div>
+				<div class="CA-Pay" style="flex: 50%;">
+					<div class="state">
+						<p style="text-align: center;">CALIFORNIA</p>
+					</div>
+					<div id ="ca-payment" class="place" style="text-align: center;">
+						<a href = "https://paylink.paytrace.com/?m=85706" class="payment-button" id="ca-form" target="_blank">CA Payment</a>
+
+					</div>
+				</div>
+			</div>
+		<div style="text-align: center;">
+		</div>
+		</form>
+	</div>
+<script type="text/javascript">
+
+	var $redirect_form = document.querySelector(".redirect-form");
+	$redirect_form.addEventListener('change', updateQueryString);
+
+	function updateQueryString(){
+		var $amount = document.querySelector("#amount").value;
+		var $invoice = document.querySelector("#invoice").value;
+
+		var $queryString = `&amount=${$amount}&invoice=${$invoice}`;
+		document.querySelector("#az-form").href = "https://paylink.paytrace.com/?m=85707" + $queryString;
+		document.querySelector("#ca-form").href = "https://paylink.paytrace.com/?m=85706" + $queryString;
+		//console.log(document.querySelector("#az-form").href);
+		//console.log(document.querySelector("#ca-form").href);
+	}
+
+
+</script>
+
+	
+			
+</body>
+
+</html>

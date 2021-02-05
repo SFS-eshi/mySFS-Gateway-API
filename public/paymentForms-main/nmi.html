@@ -1,0 +1,254 @@
+<html>
+    <head>
+        <title>NMI Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script
+        src="https://secure.nmi.com/token/Collect.js"
+        data-tokenization-key="Z679VY-9u7zjd-FwZEv6-8WBw3t"
+        data-payment-selector=".customPayButton"
+        data-theme="bootstrap"
+        data-primary-color="#ff288d"
+        data-secondary-color="#00ffb3"
+        data-button-text="SUBMIT ME!"
+        data-payment-type="cc"
+        data-instruction-text="Enter Card Information"
+    ></script>
+    <style type="text/css">
+        #payButton {
+            width: 250px;
+            display: block;
+            margin: 5px 100px;
+            height: 50px !important;
+            font-size: 20px;
+            font-weight: bold;
+            color: whitesmoke;
+            background-color: #1AD18E;
+            border-color: #1AD18E;
+            box-shadow: 0 3px 10px #bbbbbb;
+            border-radius: 19px;
+        }
+        #payButton:hover {
+            background-color: #19C687;
+            border-color: #19C687;
+            box-shadow: 0 3px 4px #bbbbbb;
+        }
+        #payButton:active {
+            opacity: 0.7;
+        }
+        .formInner {
+            max-width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 20px auto;
+        }
+        .form-control {
+            border: 3px solid #ffffff !important;
+            box-shadow: 0 2px 8px #dddddd !important;
+            font-family: 'Arial';
+            width: 100%;
+        }
+        .form-control:hover {
+            box-shadow: 0 2px 4px #dddddd;
+        }
+
+        .form-control:focus {
+            box-shadow: 0 2px 4px #dddddd !important;
+            border: 3px solid #1AD18E !important;
+        }
+        #ifrm1 {
+            border: 2px;
+            width: 1100px;
+            height: 75px;
+            word-wrap: break-all;
+            overflow: visible;
+        }
+    </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Example Payment Form</h1>
+            <div class = "row mb-5 pb-md-4 align-items-center col-md-7">    
+                <form action="https://secure.nmi.com/api/transact.php" method="post" class = "theForm" target = "ifrm1">
+                    <div class="formInner">
+                    <table>
+                        <input type="hidden" id="security_key" name="security_key" value="no key">
+                        <!--Level 2 Data-->
+                        <input type="hidden" id="tax" name="tax" value="1.00">
+                        <input type="hidden" id="shipping" name="shipping" value="1.00">
+                        <input type="hidden" id="ponumber" name="ponumber" value="100">
+                        <!--Level 3 Data-->
+                        <input type="hidden" id="item_product_code_" name="item_product_code_" value="100">
+                        <input type="hidden" id="item_description_" name="item_description_" value="100">
+                        <input type="hidden" id="item_commodity_code_" name="item_commodity_code_" value="100">
+                        <input type="hidden" id="item_unit_of_measure_" name="item_unit_of_measure_" value="100">
+                        <input type="hidden" id="item_unit_cost_" name="item_unit_cost_" value="100">
+                        <input type="hidden" id="item_quantity_" name="item_quantity_" value="100">
+                        <input type="hidden" id="item_total_amount_" name="item_total_amount_" value="100">
+                        <input type="hidden" id="item_tax_amount_" name="item_tax_amount_" value="100">
+                        <input type="hidden" id="item_tax_rate_" name="item_tax_rate_" value="100">
+                        <input type="hidden" id="item_discount_amount_" name="item_discount_amount_" value="100">
+                        <input type="hidden" id="item_discount_rate_" name="item_discount_rate_" value="100">
+                        <input type="hidden" id="item_tax_type_" name="item_tax_type_" value="100">
+                        <input type="hidden" id="item_alternate_tax_id_" name="item_alternate_tax_id_" value="100">
+
+                        <!-- Visible Form-->
+                        <tr>
+                            <td>First Name: </td>
+                            <td><input size="30" type="text" name="fname" value="Test" class="form-control"/></td>
+                        </tr>
+                        <tr>
+                            <td>Last Name: </td>
+                            <td><input size="30" type="text" name="lname" value="User" class="form-control"/></td>
+                        </tr>
+
+                        <tr>
+                            <td>Address: </td>
+                            <td><input size="30" type="text" name="address" value="123 Main Street" class="form-control"></td>
+                        </tr>
+                        <tr>
+                            <td>City: </td>
+                            <td><input size="30" type="text" name="city" value="Beverley Hills" class="form-control"></td>
+                        </tr>
+                        <tr>
+                            <td>State: </td>
+                            <td><input size="30" type="text" name="state" value="CA" class="form-control"></td>
+                        </tr>
+                        <tr>
+                            <td>Zip: </td>
+                            <td><input size="30" type="text" name="zip" value="90210" class="form-control"></td>
+                        </tr>
+                        <tr>
+                            <td>Country: </td>
+                            <td><input size="30" type="text" name="country" value="US" class="form-control"></td>
+                        </tr>
+                        <tr>
+                            <td>Phone: </td>
+                            <td><input size="30" type="text" name="phone" value="5555555555" class="form-control"></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Student ID:</strong></td>
+                            <td><input size="30" type="text" name="merchant_defined_field_1" value="student_1" class="form-control"></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Amount:</strong> </td>
+                            <td><input size="30" type="text" name="amount" value="5.99" class="form-control"/></td>
+                        </tr>
+                        <tr>
+                            <td>Dropdown: </td>
+                            <td><select name="merchant_defined_field_2" id = "dropdown" class="form-control">
+                                <option value="" selected disabled hidden>Choose here</option>
+                            </select></td>
+                        </tr>
+                    </table>
+                    </div>
+                    <button class="customPayButton" type="button" id="payButton">Pay the money.</button>
+                </form>
+                <div id="paymentResponse" type="hidden" style = "display: block; margin: 20px auto;">
+                    <h4>Raw Payment Response:</h4>
+                    <iframe id="ifrm1" name="ifrm1"></iframe>
+                </div>
+            </div>
+        
+            <div class = "col-md-5">
+                <br>
+                <h4 style = "display: block; margin: auto;" >Test Card PANs</h4>
+                <table style="height: 265px; width: 328px; display: block;">
+                <tbody>
+                <tr>
+                <th style="width: 163px;" bgcolor="#5cddad" data-darkreader-inline-bgcolor=""><font style="--darkreader-inline-color: #dad7d1;" color="#282828" data-darkreader-inline-color="">Card Scheme</font></th>
+                <th style="width: 159px;" bgcolor="#5cddad" data-darkreader-inline-bgcolor=""><font style="--darkreader-inline-color: #dad7d1;" color="#282828" data-darkreader-inline-color="">Card Number (PAN)</font></th>
+                </tr>
+                <tr>
+                    <td style="width: 163px;">Amex</td>
+                    <td style="width: 159px;">371111111111114</td>
+                </tr>
+                <tr>
+                    <td style="width: 163px;">Diners</td>
+                    <td style="width: 159px;">3001111111111116</td>
+                </tr>
+                <tr>
+                    <td style="width: 163px;">Discover</td>
+                    <td style="width: 159px;">6011111111111117</td>
+                </tr>
+                <tr>
+                    <td style="width: 163px;">JCB</td>
+                    <td style="width: 159px;">35281111111111119</td>
+                </tr>
+                <tr>
+                    <td style="width: 163px;">Maestro</td>
+                    <td style="width: 159px;">56410411111111113</td>
+                </tr>
+                <tr>
+                    <td style="width: 163px;">Mastercard <em>(Credit)</em></td>
+                    <td style="width: 159px;">5411111111111115</td>
+                </tr>
+                <tr>
+                    <td style="width: 163px;">Mastercard <em>(Debit)</em></td>
+                    <td style="width: 159px;">5511111111111114</td>
+                </tr>
+                <tr>
+                    <td style="width: 163px;">Visa <em>(Credit)</em></td>
+                    <td style="width: 159px;">4532111111111112</td>
+                </tr>
+                <tr>
+                    <td style="width: 163px;">Visa <em>(Debit)</em></td>
+                    <td style="width: 159px;">4751271111111118</td>
+                </tr>
+                </tbody>
+                </table>
+            </div>
+        </div>
+    </body>
+
+<script type="text/javascript">
+    var dropdown = document.getElementById("dropdown"); 
+    var options = ["Tuition/fees (AUA distinct from AICASA)", "Housing", "Utilities", "Comp exam payments", "Transcripts", "Temp bus passes or full semester bus service", "Parking permits", "Diplomas (small and large formats)", "Cap&Gown fees", "Other",];
+    for(var i = 0; i < options.length; i++) {
+        var opt = options[i];
+        var el = document.createElement("option");
+        el.textContent = opt;
+        el.value = opt;
+        dropdown.appendChild(el);
+    };
+    document.getElementById("dropdown").addEventListener("click", function(){
+        var dropdownOption = document.getElementById("dropdown").value;
+        switch (dropdownOption) {
+            case "Tuition/fees (AUA distinct from AICASA)":
+                document.getElementById("security_key").value = "9nqd2m6YAz54npdQ3DpV94Q59JT32s64"
+                break
+            case "Housing":
+                document.getElementById("security_key").value = "UuV5FK5NgFEH7Nc8cVE4U9r54mz4R687"
+                break
+            case "Utilities":
+                document.getElementById("security_key").value = "5tqK7fe88kUW2b5YTFDbFXu4E87uCFz2"
+                break
+            case "Comp exam payments":
+                document.getElementById("security_key").value = "rHQ3hUen8jFM234z5VHXajd2eBf8pwD3"
+                break
+            case "Transcripts":
+                document.getElementById("security_key").value = "ur8XssCY3625n3QtFxf8JUfE3EQzFT58"
+                break
+            case "Temp bus passes or full semester bus service":
+                document.getElementById("security_key").value = "9555qAmsd8CEgW5J27yhMVvb725FS4YE"
+                break
+            case "Parking permits":
+                document.getElementById("security_key").value = "772FXabF9nS5mRM6r32wp6pr39Bky9J7"
+                break
+            case "Diplomas (small and large formats)":
+                document.getElementById("security_key").value = "NBu7frRRGW6eZkHFjM9wJxM53D63qG7j"
+                break
+            case "Cap&Gown fees":
+                document.getElementById("security_key").value = "tX77WYZfW43KrV5c8h8twz69AegDpe8p"
+                break
+            case "Other":
+                document.getElementById("security_key").value = "7v3hD8QmkQZB4dhF4Y695rS45EVwN5uH"
+                break
+            }
+        });
+</script>
+</html>

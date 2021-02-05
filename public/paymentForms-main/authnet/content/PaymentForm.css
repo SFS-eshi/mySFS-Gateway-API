@@ -1,0 +1,260 @@
+html{
+   overflow-y:scroll;
+   overflow-x:auto;
+}
+
+BODY {
+    background-color: #ffffff;
+    color: #000000;
+    font-family: Arial, Sans-Serif;
+    padding: 0;
+    margin: 0;
+}
+
+table 
+{
+    table-layout:fixed;
+}
+
+td 
+{
+    word-wrap: break-word;
+}
+
+.Page {border: #828282 1px solid; padding: 5px; width:570px; text-align:left; margin-left:auto; margin-right:auto;}
+.PageOuter { text-align:center; margin-top:15px; margin-bottom:15px; }
+
+.SectionHeading { font-size: 18px; font-weight:bold; }
+
+TD, DIV, SPAN, BODY, P {font-size:12px;}
+
+IMG {border-width:0;}
+
+.BorderBottom { border-bottom: #828282 1px solid;}
+.BorderTop {border-top: #828282 1px solid; }
+.BorderAll { border: #828282 1px solid; }
+
+.SectionHeadingBorder { margin-top: 15px; margin-bottom: 5px; border-bottom: #828282 1px solid; width: 100%; }
+
+.SectionBar {
+    background-color: #a0a0a0;
+    color: #ffffff;
+    padding-bottom: 2px;
+    padding-top: 2px;
+    padding-left: 3px;
+    margin-bottom: 4px;
+}
+
+.HorizontalLine {
+	background-color: #666666;
+	height: 1px;
+}
+
+HR { border: 0px; border-top: 1px solid #828282; height: 1px;}
+HR.HrTop {border-top-color: #929292;}
+HR.HrLineItem {border-top-color: #c0c0c0;}
+
+.SpacerRow1 {line-height:8px; height:8px; }
+.SpacerRow2 {line-height:5px; height:5px; }
+
+.LabelColOrderTop,
+.LabelColOrderBottom,
+.LabelColTotal,
+.LabelColOrderTopWLI,
+.LabelColPayBy,
+.LabelColCC,
+.LabelColBank,
+.LabelColBill,
+.LabelColShip
+{ text-align: right; }
+
+.LabelColOrderTop,
+.LabelColShip,
+.LabelColCaptcha
+{ width: 140px; }
+
+.LabelColOrderDescr { font-weight: bold; vertical-align: top; }
+.DataColOrderDescr { vertical-align: top; }
+
+.DataColOrderBottom,
+.DataColTotal,
+.DescrColOrderBottom
+{ text-align: right; }
+
+.DataColPayBy
+{ vertical-align: middle; }
+
+.LabelColTotal,
+.DataColTotal
+{ font-size:14px; font-weight: bold; }
+
+.LabelColCC,
+.LabelColBill,
+.LabelColShip
+{ width: 140px; }
+
+#tablePaymentMethod,#tableCustomerShippingInformation { table-layout: auto;}
+
+
+#tdBillingInformation {width:260px; vertical-align:top;}
+#tdShippingInformation {vertical-align:top;}
+#tableBillingShipping .Label {margin-bottom: 3px; }
+
+#tdPaymentDetails2Rcpt1 {width:260px; vertical-align:top;}
+#tdPaymentDetails2Rcpt2 {vertical-align:top;}
+
+.LabelColInfo1R {width:90px; vertical-align:top;}
+.DataColInfo1R {vertical-align:top;}
+.LabelColInfo2R {width:130px; vertical-align:top;}
+.DataColInfo2R {vertical-align:top;}
+.LabelColInfo3R {width:120px; vertical-align:top; text-align:right;}
+.DataColInfo3R {vertical-align:top; text-align:right;}
+
+.LItemColItemHdr {text-align:left;}
+.LItemColNameHdr {text-align:left;}
+.LItemColQtyHdr {text-align:right;}
+.LItemColQty {text-align:right;}
+.LItemColTaxabHdr {text-align:center;}
+.LItemColTaxab {text-align:center;}
+.LItemColUPriceHdr {text-align:right;}
+.LItemColUPrice {text-align:right;}
+.LItemColTotalHdr {text-align:right;}
+.LItemColTotal {text-align:right;}
+
+.PaymentSectionTable {width:100%;}
+.PaymentSection1 {vertical-align:bottom;}
+.PaymentSection2 {vertical-align:bottom;}
+.PaymentSection2 TABLE {float:right;}
+.PaymentSectionSpacer { clear: both; line-height: 2px; height: 2px; }
+
+.HeaderFooter1 
+{
+    font-size: 15px;
+    font-weight:normal;
+    text-align:center;
+    vertical-align:middle;
+    padding-top:5px;
+    padding-bottom:5px;
+}
+
+.Label { font-weight:600; }
+
+.Comment {font-size: 10px;  }
+
+.Hidden{display:none;}
+
+fieldset{border:none;}
+
+h2{font-size: 12px; font-weight:normal;}
+
+.Attention1 {
+    font-size: 22px;
+    font-weight:600;
+    color:Red;
+    background-color:White;
+    text-align:center;
+}
+
+input.input_text {height: 21px; line-height:15px;}
+
+#tablePaymentDetails1Rcpt {width:100%;}
+#tablePaymentDetails2Rcpt {width:100%;}
+#tableBillingShipping {width:100%;}
+#divThankYou {font-size: 16px; font-weight: bold;}
+#divReceiptMsg {padding-bottom: 5px; padding-top: 5px;}
+#divClickAway {text-align: center; padding-bottom: 15px;}
+#divPreviewMode, #divPreviewModeRcpt, #divPreviewMode2 {
+    text-align:center;
+    color:Red;
+    background-color:White;
+}
+#divPreviewMode, #divPreviewModeRcpt {font-size: 16px;}
+
+#tdRequiredFields {text-align:right;}
+#tableButtons {width:100%;}
+#tableButtonsInner { margin-left:auto; margin-right:auto; }
+#tdVerifiedMerchant {width:100px;}
+#tdButtons {width:360px; text-align:center;}
+#tableButtonsInner TD {padding-left:8px; padding-right:8px;}
+#divOrderDetailsTop {}
+#tableOrderDetailsTop {float: right;}
+#divOrderDescr {clear: both;}
+#tableOrderDetailsTopPAuth {float: right;}
+#divOrderDetailsBottom {}
+#tableOrderDetailsBottom {float: right;}
+#divOrderDetailsBottomSpacer {clear: both;}
+#divOrderDetailsBottomSpacerR {clear: both; height: 10px;}
+#divOrderDetailsPAuthSpacer {clear: both;}
+#tableLineItems {width:100%;}
+
+.GrayBoxOuter { background-color: #eeeeee; color: #000000; padding: 7px; }
+#divErrorMsgsOuter { margin-bottom: 15px; }
+.GrayBox { border: #828282 1px solid; padding: 10px; }
+.GrayBoxHdr { font-weight: bold; font-size: 16px; }
+#divPartialAuthHdr1 { margin: 0; }
+#divErrorMsgs ul { margin-top: 0; margin-bottom: 0; }
+.GrayBox .BoxSectionHeader { 
+    background-color: #828282; 
+    color: #eeeeee; 
+    padding-left: 3px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+#tablePartialAuth { width: 60%; color: #000000; }
+#tablePartialAuth .DataCol { text-align: right; }
+#tablePartialAuth .TRPAAvailBal .DataCol { text-align: left; }
+#divCancelOrderMain { margin-top: 60px; margin-bottom: 140px; }
+#divOrderCanceledContinue { text-align: center; margin-top: 10px; }
+#divNotesTransID { margin-top: 16px; margin-bottom: 16px; }
+
+INPUT#x_invoice_num {width:146px;}
+INPUT#x_description {width:326px;}
+INPUT#x_amount {width:86px;}
+INPUT#x_cust_id {width:128px;}
+INPUT#x_auth_code {width:80px;}
+INPUT#x_card_num {width:134px;}
+INPUT#x_exp_date {width:134px;}
+INPUT#x_bank_acct_type {width:158px;}
+INPUT#x_bank_acct_num {width:158px;}
+INPUT#x_bank_aba_code {width:158px;}
+INPUT#x_bank_name {width:158px;}
+INPUT#x_first_name {width:122px;}
+INPUT#x_last_name {width:125px;}
+INPUT#x_company {width:326px;}
+INPUT#x_address {width:326px;}
+INPUT#x_city {width:326px;}
+INPUT#x_state {width:44px;}
+INPUT#x_zip {width:86px;}
+INPUT#x_country {width:326px;}
+INPUT#x_phone {width:146px;}
+INPUT#x_fax {width:146px;}
+INPUT#x_email {width:326px;}
+INPUT#x_tax {width:86px;}
+INPUT#x_duty {width:86px;}
+INPUT#x_freight {width:86px;}
+INPUT#x_po_num {width:176px;}
+INPUT#x_currency_code {width:44px;}
+INPUT#x_customer_tax_id {width:86px;}
+INPUT#x_drivers_license_num {width:98px;}
+INPUT#x_drivers_license_state {width:38px;}
+INPUT#x_drivers_license_dob {width:98px;}
+INPUT#x_card_code {width:50px;}
+INPUT#x_ship_to_first_name {width:122px;}
+INPUT#x_ship_to_last_name {width:125px;}
+INPUT#x_ship_to_company {width:326px;}
+INPUT#x_ship_to_address {width:326px;}
+INPUT#x_ship_to_city {width:326px;}
+INPUT#x_ship_to_state {width:44px;}
+INPUT#x_ship_to_zip {width:86px;}
+INPUT#x_ship_to_country {width:326px;}
+INPUT#x_bank_acct_name {width:158px;}
+INPUT#x_captcha {width:56px;}
+
+div.dialog-bg { 
+Z-INDEX: 2; FILTER: alpha (opacity = 80); LEFT: 0px; WIDTH: 100%; POSITION: absolute; TOP: 0px; HEIGHT: 100%; BACKGROUND-COLOR: #CCCCCC; opacity: 0.8 
+} 
+div.dialog { 
+border: #228822 3px solid; Z-INDEX: 99; WIDTH: 420px; top: 150px; margin-left: 75px; background-color: #FFFFFF; position: absolute; padding: 10px; 
+} 
